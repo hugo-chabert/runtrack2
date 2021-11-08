@@ -13,9 +13,15 @@
 </html>
 <?php
 
-if(isset($_POST['str'])){
-    $str = $_POST['str'].' ';
-    gras($str);
+if(isset($_POST["str"]) == true) {
+    foreach ($_POST as $key => $value) {
+        if ($value == "gras") {
+            $str= $_POST["str"].' ';
+            gras($str);
+        }
+        else
+            false;
+    }
 }
 
 
@@ -51,8 +57,16 @@ function gras($str){
 
 $decalage = 2;
 
-if(isset($_POST['str'])){
-    cesar($str,$decalage);
+
+if(isset($_POST["str"]) == true) {
+    foreach ($_POST as $key => $value) {
+        if ($value == "cesar") {
+            $str= $_POST["str"];
+            cesar($str,$decalage);
+        }
+        else
+            false;
+    }
 }
 
 function cesar($str, $decalage){
@@ -118,6 +132,25 @@ function cesar($str, $decalage){
         $i++;
     }
     return($str);  
+}
+
+if(isset($_POST["str"]) == true) {
+    foreach ($_POST as $key => $value) {
+        if ($value == "plateforme") {
+            $str= $_POST["str"];
+            plateforme($str);
+        }
+        else
+            false;
+    }
+}
+
+function plateforme($str){
+    $i = 0;
+    if($str[$i-1] == 'e' && $str[$i-2] == 'm')
+        $str .= '_';
+    echo($str);
+    return($str);
 }
 
 ?>
