@@ -7,6 +7,8 @@
         <input type="submit">
     </form>
 </html>
+
+
 <?php
 
 if(isset($_POST['largeur'])){
