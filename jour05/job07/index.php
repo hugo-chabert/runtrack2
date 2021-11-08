@@ -14,10 +14,10 @@
 <?php
 
 if(isset($_POST['str'])){
-    $str = $_POST['str'];
-    $str = $str.' ';
+    $str = $_POST['str'].' ';
     gras($str);
 }
+
 
 
 function gras($str){
@@ -40,14 +40,84 @@ function gras($str){
                     echo($str[$i]);
                     $i++;
                 }
-            }               
-            
+            }          
             $j++;
-        }
-            
+        }   
         $i++;    
     }
     return ($str);
+}
+
+
+$decalage = 2;
+
+if(isset($_POST['str'])){
+    cesar($str,$decalage);
+}
+
+function cesar($str, $decalage){
+    $minus = "abcdefghijklmnopqrstuvwxyz";
+    $majus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $boucle1 = $decalage;
+    $boucle2 = $decalage;
+    while($boucle1 > 0){
+        $change = $minus;
+        $i = 0;
+        $j = 1;
+        $minus = '';
+        while(isset($change[$j]) == true){
+            $temp = $change[$i];
+            $change[$i] = $change[$j];
+            $change[$j] = $temp;
+            $minus .= $change[$i];
+            $change[$i] = $change[$j];
+            $j++;
+        }
+        $minus .= $change[$i];
+        $boucle1--;
+    }
+    while($boucle2 > 0){
+        $change = $majus;
+        $i = 0;
+        $j = 1;
+        $majus = '';
+        while(isset($change[$j]) == true){
+            $temp = $change[$i];
+            $change[$i] = $change[$j];
+            $change[$j] = $temp;
+            $majus .= $change[$i];
+            $change[$i] = $change[$j];
+            $j++;
+        }
+        $majus .= $change[$i];
+        $boucle2--;
+    }
+    
+    $alphabetMIN = "abcdefghijklmnopqrstuvwxyz";
+    $alphabetMAJ = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    $space = " ";
+    $i = 0;    
+    while(isset($str[$i]) == true){
+        $j = 0;
+        $k = 0;
+        
+        if($str[$i] == $space)
+                echo($space);
+
+        while(isset($alphabetMIN[$j]) == true){
+            if($str[$i] == $alphabetMIN[$j])
+                echo($minus[$j]);
+            $j++;
+        }
+        
+        while(isset($alphabetMAJ[$k]) == true){
+            if($str[$i] == $alphabetMAJ[$k])
+                echo($majus[$k]);
+            $k++;
+        }
+        $i++;
+    }
+    return($str);  
 }
 
 ?>
