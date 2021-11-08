@@ -15,24 +15,36 @@
 
 if(isset($_POST['str'])){
     $str = $_POST['str'];
+    $str = $str.' ';
     gras($str);
 }
 
-$maj = "AZERTYUIOPQSDFGHJKLMWXCVBN";
-$min = "azertyuiopqsdfghjklmwxcvbn";
 
 function gras($str){
     $i = 0;
+    $maj = "AZERTYUIOPQSDFGHJKLMWXCVBN ";
+    $min = "azertyuiopqsdfghjklmwxcvbn ";
+    $space = " ";
     while(isset($str[$i]) == true){  
         $j = 0;
         while(isset($maj[$j]) == true){
-            if($str[$i] == $maj[$j])
-                echo('<b>'.$str[$i].'</b>'); 
-            else
-                echo($str[$i]);
-                         
+            if($str[$i] == $maj[$j]){
+                while($str[$i] != $space){
+                    echo('<b>'.$str[$i].'</b>');
+                    $i++;
+                }
+                echo($space);
+            }
+            else if($str[$i] == $min[$j]){
+                while($str[$i] != $space){
+                    echo($str[$i]);
+                    $i++;
+                }
+            }               
+            
             $j++;
-        }      
+        }
+            
         $i++;    
     }
     return ($str);
