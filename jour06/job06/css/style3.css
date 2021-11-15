@@ -1,0 +1,12 @@
+html{
+    background-color : red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: grey;                            
+}
+
+input[type=submit]{
+    width: 7%;
+    margin-left: 5%;
+    box-shadow: 3px 3px 3px orange;
+    cursor: pointer;
+}

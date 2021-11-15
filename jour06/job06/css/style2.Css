@@ -1,0 +1,17 @@
+html{
+    background-color : yellow;
+    font-family: fantasy;
+    letter-spacing: 1px;
+    font-size: 150%;
+    color: purple;
+    text-align: center;
+}
+
+input[type=submit]{
+    width: 10%;
+    height: 5%;
+    margin-left: 2%;
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+    border-radius: 20%;
+}
